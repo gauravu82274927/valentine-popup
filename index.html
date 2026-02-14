@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Valentine's Day ❤️</title>
+<title>For Arpita ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
@@ -19,87 +19,79 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background: linear-gradient(135deg,#ff4e8a,#ff99c8,#ff4e8a);
-    background-size:400% 400%;
-    animation: gradientBG 8s ease infinite;
+    background: radial-gradient(circle at top,#ff6fa5,#ff2e75,#8b004f);
     overflow:hidden;
     font-family:'Poppins',sans-serif;
+    color:white;
 }
 
-@keyframes gradientBG{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+/* Soft glowing stars */
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation: twinkle 2s infinite alternate;
 }
 
-/* Floating Hearts */
-.heart{
+@keyframes twinkle{
+    from{opacity:0.3;}
+    to{opacity:1;}
+}
+
+/* Floating petals */
+.petal{
     position:absolute;
     font-size:20px;
-    animation: float 6s linear infinite;
-    opacity:0.8;
+    animation: float 8s linear infinite;
 }
 
 @keyframes float{
-    0%{transform:translateY(100vh) scale(0.5);}
-    100%{transform:translateY(-10vh) scale(1.2);}
+    0%{transform:translateY(100vh) rotate(0deg);}
+    100%{transform:translateY(-10vh) rotate(360deg);}
 }
 
-/* Popup Card */
+/* Main Card */
 .card{
-    background:rgba(255,255,255,0.15);
-    backdrop-filter: blur(15px);
-    padding:40px;
-    border-radius:25px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter: blur(20px);
+    padding:50px 35px;
+    border-radius:30px;
     text-align:center;
-    box-shadow:0 0 40px rgba(255,0,102,0.6);
-    animation: pop 1.2s ease forwards;
-    transform: scale(0);
+    box-shadow:0 0 60px rgba(255,0,120,0.7);
     max-width:90%;
+    animation: fadeIn 2s ease forwards;
 }
 
-@keyframes pop{
-    to{transform: scale(1);}
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
 }
 
 .rose{
-    font-size:120px;
+    font-size:140px;
     animation: glow 2s infinite alternate;
 }
 
 @keyframes glow{
-    from{text-shadow:0 0 10px #ff0066;}
-    to{text-shadow:0 0 40px #ff0066;}
+    from{text-shadow:0 0 15px #ff0055;}
+    to{text-shadow:0 0 60px #ff0055;}
 }
 
 h1{
     font-family:'Dancing Script',cursive;
-    font-size: clamp(28px, 5vw, 48px);
-    color:white;
+    font-size: clamp(32px, 6vw, 52px);
     margin-top:20px;
 }
 
-p{
-    margin-top:15px;
-    color:white;
-    font-size: clamp(16px, 3vw, 20px);
-}
-
-button{
+.secret{
     margin-top:25px;
-    padding:12px 25px;
-    border:none;
-    border-radius:25px;
-    background:#ff0066;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    background:white;
-    color:#ff0066;
+    font-size: clamp(16px, 3.5vw, 20px);
+    line-height:1.6;
+    font-weight:300;
+    opacity:0.95;
 }
 </style>
 </head>
@@ -108,34 +100,41 @@ button:hover{
 
 <div class="card">
     <div class="rose">🌹</div>
-    <h1>Happy Valentine's Day, Mamma !</h1>
-    <p>You are my first love, my forever strength, and my biggest blessing ❤️</p>
-    <button onclick="playMusic()">Tap for Love 💕</button>
+    <h1>Happy Valentine's Day, Arpita !</h1>
+
+    <div class="secret">
+        I won’t say who I am, maybe you know, maybe you don't, <br>
+        But I will say this —<br><br>
+        You’re attractive when you’re confident.<br>
+        And someone’s heart races a little because of it.
+    </div>
 </div>
 
-<audio id="music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_58fef15ec0.mp3?filename=romantic-piano-110624.mp3" type="audio/mpeg">
-</audio>
-
 <script>
-function createHearts(){
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.animationDuration = (Math.random()*3 + 3) + "s";
-    document.body.appendChild(heart);
 
-    setTimeout(()=>{
-        heart.remove();
-    },6000);
+/* Create twinkling stars */
+for(let i=0;i<40;i++){
+    const star=document.createElement("div");
+    star.classList.add("star");
+    star.style.top=Math.random()*100+"vh";
+    star.style.left=Math.random()*100+"vw";
+    star.style.animationDuration=(Math.random()*2+1)+"s";
+    document.body.appendChild(star);
 }
 
-setInterval(createHearts, 300);
-
-function playMusic(){
-    document.getElementById("music").play();
+/* Floating rose petals */
+function createPetal(){
+    const petal=document.createElement("div");
+    petal.classList.add("petal");
+    petal.innerHTML="🌸";
+    petal.style.left=Math.random()*100+"vw";
+    petal.style.animationDuration=(Math.random()*5+5)+"s";
+    document.body.appendChild(petal);
+    setTimeout(()=>{petal.remove();},8000);
 }
+
+setInterval(createPetal,500);
+
 </script>
 
 </body>
