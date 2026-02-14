@@ -1,162 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Be My Valentine 💖</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(-45deg, #ff4e88, #ff9a9e, #fad0c4, #ffdde1);
-            background-size: 400% 400%;
-            animation: gradientBG 8s ease infinite;
-            overflow: hidden;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#ff4e8a,#ff99c8,#ff4e8a);
+    background-size:400% 400%;
+    animation: gradientBG 8s ease infinite;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+}
 
-        .card {
-            backdrop-filter: blur(20px);
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 40px;
-            width: 400px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            color: white;
-            position: relative;
-        }
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-        h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
+/* Floating Hearts */
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation: float 6s linear infinite;
+    opacity:0.8;
+}
 
-        .heart {
-            font-size: 60px;
-            animation: beat 1s infinite;
-        }
+@keyframes float{
+    0%{transform:translateY(100vh) scale(0.5);}
+    100%{transform:translateY(-10vh) scale(1.2);}
+}
 
-        @keyframes beat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
+/* Popup Card */
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(255,0,102,0.6);
+    animation: pop 1.2s ease forwards;
+    transform: scale(0);
+    max-width:90%;
+}
 
-        .buttons {
-            margin-top: 30px;
-        }
+@keyframes pop{
+    to{transform: scale(1);}
+}
 
-        button {
-            padding: 12px 25px;
-            border-radius: 30px;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            margin: 10px;
-            transition: 0.3s;
-        }
+.rose{
+    font-size:120px;
+    animation: glow 2s infinite alternate;
+}
 
-        #yesBtn {
-            background: white;
-            color: #ff2e63;
-            font-weight: bold;
-        }
+@keyframes glow{
+    from{text-shadow:0 0 10px #ff0066;}
+    to{text-shadow:0 0 40px #ff0066;}
+}
 
-        #yesBtn:hover {
-            transform: scale(1.1);
-        }
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size: clamp(28px, 5vw, 48px);
+    color:white;
+    margin-top:20px;
+}
 
-        #noBtn {
-            background: #333;
-            color: white;
-            position: absolute;
-        }
+p{
+    margin-top:15px;
+    color:white;
+    font-size: clamp(16px, 3vw, 20px);
+}
 
-        .message {
-            margin-top: 20px;
-            font-size: 22px;
-            font-weight: bold;
-        }
+button{
+    margin-top:25px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ff0066;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-        /* Floating hearts */
-        .floating-heart {
-            position: absolute;
-            font-size: 20px;
-            animation: floatUp 6s linear infinite;
-            opacity: 0.7;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(100vh);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-10vh);
-                opacity: 0;
-            }
-        }
-    </style>
+button:hover{
+    background:white;
+    color:#ff0066;
+}
+</style>
 </head>
 
 <body>
 
 <div class="card">
-    <div class="heart">💖</div>
-    <h1>Will You Be My Valentine?</h1>
-
-    <div class="buttons">
-        <button id="yesBtn" onclick="sayYes()">Yes 💕</button>
-        <button id="noBtn" onmouseover="moveNo()">No 😜</button>
-    </div>
-
-    <div id="result" class="message"></div>
+    <div class="rose">🌹</div>
+    <h1>Happy Valentine's Day, Mamma !</h1>
+    <p>You are my first love, my forever strength, and my biggest blessing ❤️</p>
+    <button onclick="playMusic()">Tap for Love 💕</button>
 </div>
 
+<audio id="music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_58fef15ec0.mp3?filename=romantic-piano-110624.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-    const noBtn = document.getElementById("noBtn");
+function createHearts(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = (Math.random()*3 + 3) + "s";
+    document.body.appendChild(heart);
 
-    function moveNo() {
-        const x = Math.random() * 300 - 150;
-        const y = Math.random() * 200 - 100;
-        noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    }
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
 
-    function sayYes() {
-        document.getElementById("result").innerHTML =
-            "Yayyyy! 💘 You just made me the happiest person alive! 💖✨";
+setInterval(createHearts, 300);
 
-        createConfetti();
-    }
-
-    function createConfetti() {
-        for (let i = 0; i < 50; i++) {
-            let heart = document.createElement("div");
-            heart.className = "floating-heart";
-            heart.innerHTML = "💗";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
-            heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-            document.body.appendChild(heart);
-
-            setTimeout(() => heart.remove(), 6000);
-        }
-    }
+function playMusic(){
+    document.getElementById("music").play();
+}
 </script>
 
 </body>
